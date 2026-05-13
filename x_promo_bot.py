@@ -141,11 +141,8 @@ def parse_csv_env(name: str, fallback: List[str]) -> List[str]:
     raw = os.getenv(name, "")
     if not raw.strip():
         return fallback
-    # Support quoted items with internal spaces (e.g. "hiring ", "stock ").
-    # Use regex to find quoted or unquoted items, preserving whitespace inside quotes.
-    parts = re.findall(r'"([^"]*)"|([^,]+)', raw)
-    parsed = [q.strip() if not q else q for q, _extra in parts for q in [q or _extra.strip()]]
-    return [item for item in parsed if item]
+    parts = [item.strip() for item in raw.split(",")]
+    return [item for item in parts if item]
 
 
 def quote_term(term: str) -> str:
@@ -319,7 +316,7 @@ def resolve_auth_mode(cli_mode: str, token: str, cookie_file_raw: str) -> str:
 
 
 def load_config(args: argparse.Namespace) -> Config:
-    load_dotenv()
+    load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=True)
 
     token = os.getenv("X_BEARER_TOKEN", "").strip()
     cookie_file_raw = os.getenv("COOKIE_FILE", "").strip()
@@ -588,10 +585,7 @@ def fetch_recent_posts_cookies(config: Config, query: str) -> Tuple[List[Dict[st
 
 DEFAULT_EXCLUDE_TERMS = [
     "layoff",
-    "hiring ",
-    "fired ",
     "severance",
-    "stock ",
     "shareholder",
     "earnings call",
     "fda approved",
@@ -631,6 +625,7 @@ def passes_quality_filter(
     text: str,
     username: str,
     exclude_terms: Optional[List[str]] = None,
+    blocklist_usernames: Optional[List[str]] = None,
 ) -> Tuple[bool, str]:
     """Gate that decides whether an alert is worth surfacing.
 
@@ -638,6 +633,8 @@ def passes_quality_filter(
     """
     if exclude_terms is None:
         exclude_terms = DEFAULT_EXCLUDE_TERMS
+    if blocklist_usernames is None:
+        blocklist_usernames = BLOCKLIST_USERNAMES
 
     # 1) Must have at least one promo term match.
     if not matched_promo:
@@ -651,7 +648,7 @@ def passes_quality_filter(
 
     # 3) Exclude bot-like accounts.
     uname_lower = username.lower()
-    for block in BLOCKLIST_USERNAMES:
+    for block in blocklist_usernames:
         if uname_lower.startswith(block.lower()):
             return False, f"blocklisted_username:{block}"
 
@@ -804,7 +801,9 @@ def run_once(config: Config) -> int:
         username = str(alert.get("username", ""))
         mf = alert.get("matched_focus_terms", [])
         mp = alert.get("matched_promo_terms", [])
-        ok, reason = passes_quality_filter(mf, mp, text, username, exclude_terms)
+        ok, reason = passes_quality_filter(
+            mf, mp, text, username, exclude_terms, config.blocklist_usernames
+        )
         if ok:
             quality_alerts.append(alert)
         else:
