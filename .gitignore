@@ -6,6 +6,9 @@
 # Auth cookies — never commit
 x_storage_state.json
 
+# Live state file — changes every run, not for repo
+state.json
+
 # Python
 __pycache__/
 *.pyc
