@@ -1,0 +1,127 @@
+══════════════════════════════════════════════
+  READY-TO-USE FIVERR GIG LISTING
+  Copy-paste this to start selling immediately
+══════════════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GIG TITLE OPTIONS (pick one)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. "I will repurpose your article into LinkedIn Twitter Instagram content"
+2. "I will turn your blog post into multi platform social media content"
+3. "I will create LinkedIn posts Twitter threads and Instagram captions from your content"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GIG DESCRIPTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Stop creating content for each platform from scratch.
+
+Give me ONE article or URL, and I'll deliver 15+ ready-to-post pieces of content for LinkedIn, Twitter/X, Instagram, Facebook, and your blog — all optimized for engagement.
+
+HOW IT WORKS:
+1. Send me your article URL, blog post, or notes
+2. I run it through my professional content repurposing engine
+3. You get complete, ready-to-paste content for every platform
+
+WHAT YOU GET (per source URL):
+
+📱 LinkedIn — 3 post variations
+   • Story/Insight post
+   • Key Takeaways (carousel-style)
+   • Engagement question post
+
+🐦 Twitter/X — Complete thread (8-10 tweets)
+   • Hook → insights → CTA
+
+📸 Instagram — 3 caption options
+   • Educational
+   • Storytelling
+   • Viral-style
+
+👍 Facebook — Engagement-optimized post
+
+📝 Blog — Complete article (can post on Medium, LinkedIn Articles, or your blog)
+
+TONE PROFILES AVAILABLE:
+→ Professional (B2B, corporate, formal)
+→ Casual (friendly, conversational)
+→ Viral (bold hooks, high-energy)
+→ Thought-Leadership (authority-building)
+
+─────────────────────
+MY PACKAGES:
+─────────────────────
+
+🥇 BASIC — $50
+• 1 article → 5 platforms
+• Professional tone
+• 48h delivery
+
+🥈 STANDARD — $100 ⭐ MOST POPULAR
+• 3 articles → 5 platforms each
+• Choose your tone
+• 24h delivery
+• CSV export included
+
+🥇 PREMIUM — $200
+• 10 articles → 5 platforms each
+• Custom tone per article
+• 12h delivery
+• CSV + JSON export
+• Priority support
+
+WHY ME?
+✅ Professional content repurposing engine
+✅ Zero plagiarism — original framing every time
+✅ 4+ tone profiles for any audience
+✅ Fast delivery
+
+Ready to streamline your content workflow? Click "Order Now" or message me first!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GIG FAQ (add to your gig)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Q: What do you need from me?
+A: Just the URL or text of your article/blog post, and your preferred tone.
+
+Q: Can you process non-English content?
+A: Yes! Works with any language.
+
+Q: Do I need to give you API keys?
+A: No. Everything runs on my end.
+
+Q: How many posts do I get per article?
+A: 15+ pieces across 5 platforms (LinkedIn ×3, Twitter thread, Instagram ×3, Facebook ×1, Blog ×1).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+UPWORK LISTING (alternative)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Title: Multi-platform social media content repurposing from your articles
+
+Category: Writing → Content Creation
+Subcategory: Social Media Content
+
+Description: Same as Fiverr description above.
+
+Rate: Fixed price — $50–$200 per project or $25/hour
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GUMROAD PRODUCT PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Title: Content Repurposing Toolkit — URL to Multi-Platform Content Generator
+
+Price: $29–$97 (you choose)
+
+Description:
+Stop writing social media posts from scratch. This Python-powered toolkit takes any article URL and generates 15+ ready-to-post pieces of content for LinkedIn, Twitter/X, Instagram, Facebook, and your blog.
+
+✅ No API keys needed — works out of the box
+✅ 4 tone profiles — Professional, Casual, Viral, Thought-Leadership
+✅ Batch process multiple URLs
+✅ Export to CSV for your content calendar
+✅ Commercial license included
+
+Single Python file. Works on Windows, Mac, Linux.
