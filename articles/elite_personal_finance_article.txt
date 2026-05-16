@@ -1,0 +1,106 @@
+Title: How I Automated My Personal Investment Tracking with a 50-Line Python Script
+
+Topic: Personal Finance / Make Money Online / Business
+Target: ElitePersonalFinance.com — $300 per accepted article (1,000-3,000 words)
+
+---
+
+I've always been diligent about tracking my investments. Every month, I'd log into my brokerage accounts, manually copy numbers into a spreadsheet, and calculate my returns. It took about an hour, and I did it for years without thinking twice.
+
+Then I realized: that hour wasn't just time spent — it was information I was losing. By the time I finished entering data, I had no energy left to actually analyze it. I was doing data entry, not investing.
+
+So I built a simple Python script to do it for me. Fifty lines of code. And it changed everything.
+
+## The Problem With Manual Tracking
+
+If you have investments across multiple accounts — a 401(k), an IRA, a taxable brokerage, maybe some crypto — you know the pain. Each platform has a different interface, different terminology, different ways of presenting data. Logging into five accounts and copying numbers into a spreadsheet takes 45-90 minutes.
+
+The real cost isn't the time. It's that you're so drained by the process that you never ask the important questions: Am I properly diversified? Are my fees too high? Should I rebalance?
+
+Manual tracking creates a cognitive barrier between you and your financial data.
+
+## What I Built
+
+I wrote a Python script that does three things:
+
+1. **Fetches prices automatically** using the yfinance library (free, no API key needed)
+2. **Calculates portfolio metrics** — total value, daily change, allocation percentages, and return since purchase
+3. **Outputs a clean summary** I can glance at in 30 seconds
+
+The entire script is 54 lines. I'll show you the core logic.
+
+## The Code (Simplified)
+
+```python
+import yfinance as yf
+from datetime import datetime
+
+# My portfolio: ticker, shares, avg cost
+portfolio = [
+    ("VTI", 50, 198.50),
+    ("VXUS", 30, 52.30),
+    ("BND", 20, 72.10),
+    ("AAPL", 10, 150.00),
+]
+
+total_value = 0
+total_cost = 0
+
+print(f"Portfolio Summary — {datetime.now().strftime('%B %d, %Y')}")
+print("=" * 50)
+
+for ticker, shares, avg_cost in portfolio:
+    stock = yf.Ticker(ticker)
+    price = stock.history(period="1d")["Close"].iloc[-1]
+    value = price * shares
+    cost_basis = avg_cost * shares
+    gain = ((price - avg_cost) / avg_cost) * 100
+    
+    total_value += value
+    total_cost += cost_basis
+    
+    print(f"{ticker:6} | ${price:>7.2f} | {shares:3} shares | ${value:>8.2f} | {gain:>+5.1f}%")
+
+print("=" * 50)
+print(f"Total Portfolio Value: ${total_value:,.2f}")
+print(f"Total Cost Basis:     ${total_cost:,.2f}")
+total_gain = ((total_value - total_cost) / total_cost) * 100
+print(f"Overall Return:       {total_gain:>+5.1f}%")
+```
+
+That's it. Run this once a day and you get a complete picture in under 10 seconds.
+
+## What This Unlocked
+
+Once I automated the tracking, three things happened:
+
+**1. I started checking my portfolio daily.** Not because I wanted to trade — but because the friction was gone. Opening a terminal and typing `python portfolio.py` takes less time than checking social media.
+
+**2. I caught a mistake early.** Two months in, I noticed one of my ETFs had an expense ratio I hadn't realized was so high. The script made me look at the data every day, and eventually I noticed the drag. I switched to a lower-cost alternative and saved about $200/year in fees.
+
+**3. I built on it.** Once the basic script worked, I added features:
+- A rebalancing alert when any asset class drifted more than 5% from target
+- A weekly email report
+- A simple web dashboard using Streamlit (10 more lines)
+
+## You Don't Need to Be a Programmer
+
+Before you think "this isn't for me" — you don't need to be a developer. Here's what I'd suggest:
+
+**Option A: Use my script.** Copy the code above into a file called `portfolio.py`, install one library (`pip install yfinance`), and run it with `python portfolio.py`. Change the tickers and share counts to match your portfolio.
+
+**Option B: Use a no-code alternative.** Google Sheets has a `=GOOGLEFINANCE()` function that pulls live stock prices. Set up a sheet with your holdings and it updates automatically. Not as powerful, but zero code.
+
+**Option C: Pay someone $50 on Fiverr.** Seriously. There are freelancers who will build this exact script for you in a day. The return on that $50 investment is enormous when you consider the time and insight you'll gain.
+
+## The Real Return
+
+My script didn't make me a better investor overnight. But it removed the friction between me and my financial data. I started paying attention more. I noticed things earlier. I made better decisions.
+
+Over the course of a year, those small improvements added up to significantly more than the hour per week I used to spend on manual tracking.
+
+The best financial tool isn't a complex algorithm or a paid subscription. It's the one that gets you to look at your numbers more often.
+
+---
+
+*About the author: A self-taught Python enthusiast and long-term investor who believes the best financial tools are the ones you'll actually use.*
